@@ -1,14 +1,11 @@
 "use client";
 
-import { AppConfigData } from "@/constants/app.data";
-import { productApi } from "@/services/endpoints/product";
 import { useGetProductById } from "@/services/endpoints/product/queries";
-import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function ProductDetail({ productId }: { productId: string }) {
-  const { data: product, isLoading, isError } = useGetProductById(productId);
+  const { data: product, isLoading } = useGetProductById(productId, {});
   if (isLoading) {
     return (
       <div className=" py-10">
@@ -31,6 +28,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
             width={500}
             height={500}
             className=" w-full h-auto"
+            priority={true}
           />
         </div>
         <div className=" space-y-2">

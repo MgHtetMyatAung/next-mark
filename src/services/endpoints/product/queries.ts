@@ -6,6 +6,14 @@ type ProductQueryOptions = Omit<
   "queryKey" | "queryFn" | "enabled"
 >;
 
+export const useGetProducts = () => {
+  return useQuery({
+    queryKey: ["products"],
+    queryFn: () => productApi.getAllProducts(),
+    // placeholderData: [], // Optional: for immediate UI
+  });
+};
+
 export const useGetProductById = (
   productId: string | null,
   options?: ProductQueryOptions
@@ -13,7 +21,6 @@ export const useGetProductById = (
   return useQuery({
     queryKey: ["products", productId],
     queryFn: () => productApi.getProductById(productId),
-    enabled: !!productId, // Only run if productId is available
     ...options,
   });
 };

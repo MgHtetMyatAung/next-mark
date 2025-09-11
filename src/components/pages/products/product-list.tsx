@@ -1,22 +1,26 @@
-import { productApi } from "@/services/endpoints/product";
+"use client";
+import { useGetProducts } from "@/services/endpoints/product/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 
-export default async function ProductLists() {
-  const products = await productApi.getAllProducts();
-  if (products.length < 1) {
+export default function ProductLists() {
+  const { data: products, isLoading, isError } = useGetProducts();
+  if (isLoading) {
+    return <p>Loading ...</p>;
+  }
+  if (isError) {
     notFound();
   }
   return (
     <div className=" py-10 space-y-5">
       <div>
         <h3>All Products</h3>
-        <p>Count: {products.length}</p>
+        <p>Count: {products?.length}</p>
       </div>
       <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
-        {products.map((product, idx) => (
+        {products?.map((product, idx) => (
           <Link
             href={`/products/${product.id}`}
             key={product.id}
