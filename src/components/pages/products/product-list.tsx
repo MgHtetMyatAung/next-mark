@@ -26,13 +26,13 @@ export default function ProductLists() {
             key={product.id}
             className=" space-y-3"
           >
-            <div className=" group overflow-hidden">
+            <div className=" group overflow-hidden border border-gray-400">
               <Image
                 src={product.images[0].url}
                 width={300}
                 height={300}
                 alt={product.title}
-                className=" group-hover:scale-105 transition-all duration-300"
+                className=" group-hover:scale-105 transition-all duration-300 "
               />
             </div>
             <div className=" space-y-1">

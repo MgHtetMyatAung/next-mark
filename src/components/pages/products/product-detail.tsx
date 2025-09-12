@@ -21,7 +21,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
   return (
     <div className=" py-10">
       <div className=" flex flex-col lg:flex-row gap-5">
-        <div className=" w-full lg:w-[400px] xl:w-[500px]">
+        <div className=" w-full lg:w-[400px] xl:w-[500px] border border-gray-400">
           <Image
             src={product?.images[0]?.url || ""}
             alt={product?.title || ""}
