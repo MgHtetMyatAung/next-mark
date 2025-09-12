@@ -10,7 +10,7 @@ export default function ViewHeader() {
             <h3 className=" font-bold text-lg">Next Js</h3>
           </Link>
         </div>
-        <ul className=" flex items-center gap-5">
+        <ul className=" hidden lg:flex items-center gap-5 ">
           <li>
             <Link href={"/products"} className="">
               Products

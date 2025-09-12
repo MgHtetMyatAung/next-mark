@@ -9,9 +9,7 @@ export default function ViewLayout({
   return (
     <>
       <Header />
-      <main className=" min-h-[calc(100vh-180px)] max-w-[1200px] mx-auto">
-        {children}
-      </main>
+      <main className=" min-h-[calc(100vh-180px)]">{children}</main>
       <Footer />
     </>
   );

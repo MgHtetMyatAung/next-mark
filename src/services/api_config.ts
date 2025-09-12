@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getCookie } from "cookies-next";
 
 export const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -12,10 +13,10 @@ const api = axios.create({
 // Request interceptor to add auth token if available
 api.interceptors.request.use(
   (config) => {
-    // Example: const token = localStorage.getItem('authToken');
-    // if (token) {
-    //   config.headers.Authorization = `Bearer \${token}`;
-    // }
+    const token = getCookie("authToken");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => {
@@ -24,12 +25,12 @@ api.interceptors.request.use(
 );
 
 // Response interceptor for error handling
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    // Example: if (error.response.status === 401) { logoutUser(); }
-    return Promise.reject(error);
-  }
-);
+// api.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     // Example: if (error.response.status === 401) { logoutUser(); }
+//     return Promise.reject(error);
+//   }
+// );
 
 export default api;
