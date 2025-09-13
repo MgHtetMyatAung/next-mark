@@ -1,10 +1,15 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import Cart from "./cart-count";
+import { useAuthStore } from "@/store/store-auth";
+import { Menu, User } from "lucide-react";
 
 export default function ViewHeader() {
+  const { isLoggedIn } = useAuthStore();
   return (
     <header className=" bg-gray-200">
-      <nav className=" max-w-[1200px] mx-auto flex justify-between items-center h-[80px]">
+      <nav className=" px-5 sm:px-7 lg:px-0 max-w-[1200px] mx-auto flex justify-between items-center h-[80px]">
         <div>
           <Link href={"/"} className="">
             <h3 className=" font-bold text-lg">Next Js</h3>
@@ -37,17 +42,33 @@ export default function ViewHeader() {
             </Link>
           </li>
         </ul>
-        <ul className=" flex items-center gap-5">
+        <ul className=" flex items-center gap-6 sm:gap-5">
           <li>
-            <Link href={"/sign-in"} className="">
-              Login
-            </Link>
+            <Cart />
           </li>
-          <li>
-            <Link href={"/sign-up"} className="">
-              Register
-            </Link>
-          </li>
+          {isLoggedIn ? (
+            <>
+              <li className=" lg:hidden">
+                <Menu size={20} />
+              </li>
+              <li className=" hidden lg:block">
+                <User size={20} />
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link href={"/sign-in"} className="">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link href={"/sign-up"} className="">
+                  Register
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

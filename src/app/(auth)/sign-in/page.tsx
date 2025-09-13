@@ -1,5 +1,6 @@
 "use client";
 import { useLogin } from "@/services/endpoints/auth/mutations";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -12,7 +13,6 @@ interface IFormInput {
 export default function SignInPage() {
   const searchParams = useSearchParams();
   const fromUrl = searchParams.get("from");
-  console.log(fromUrl, "url");
   const router = useRouter();
   const { mutate, isPending, isSuccess } = useLogin();
   const {
@@ -30,11 +30,11 @@ export default function SignInPage() {
       if (fromUrl) router.push(fromUrl);
       if (!fromUrl) router.push("/");
     }
-  }, [isSuccess, fromUrl]);
+  }, [isSuccess, fromUrl, router]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-lg">
+      <div className="w-full mx-2 sm:mx-0 max-w-md p-8 space-y-8 bg-white rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center text-gray-900">Login</h2>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {/* Email Input */}
@@ -105,6 +105,17 @@ export default function SignInPage() {
             >
               {isPending ? "load..." : " Sign in"}
             </button>
+          </div>
+          <div>
+            <p className=" text-center">
+              {`Don't have an account`} ?{" "}
+              <Link
+                className=" text-sm text-blue-500 font-semibold"
+                href={"/sign-up"}
+              >
+                Sign Up
+              </Link>
+            </p>
           </div>
         </form>
       </div>

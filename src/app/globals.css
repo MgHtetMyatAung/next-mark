@@ -8,3 +8,7 @@
     @apply font-semibold text-lg;
   }
 }
+
+.min-page-h {
+  @apply min-h-[calc(100vh-180px)];
+}

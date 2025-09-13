@@ -9,4 +9,11 @@ export const authApi = {
     );
     return response.data;
   },
+  register: async (requestData: registerRequest): Promise<authResponse> => {
+    const response = await api.post<authResponse>(
+      `${API_BASE_PATH}/signup`,
+      requestData
+    );
+    return response.data;
+  },
 };

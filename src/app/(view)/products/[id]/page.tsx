@@ -28,6 +28,7 @@ export async function generateMetadata({
       },
     };
   } catch (error) {
+    console.log(error);
     return {
       title: "Product not found",
     };

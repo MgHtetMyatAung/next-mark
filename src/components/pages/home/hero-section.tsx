@@ -1,5 +1,6 @@
 import { Button } from "@/components/common";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function HeroSection() {
@@ -15,7 +16,9 @@ export default function HeroSection() {
             <h5 className=" text-gray-200 text-xl lg:text-2xl">
               Created to change everything for the better. For everyone
             </h5>
-            <Button variant="outlined">Shop Now</Button>
+            <Link href={"/products"}>
+              <Button variant="outlined">Shop Now</Button>
+            </Link>
           </div>
         </div>
         <div className=" lg:w-fit">

@@ -1,12 +1,13 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import React, { ReactNode } from "react";
+import React from "react";
 
 export default function Template({ children }: { children: React.ReactNode }) {
-  const key = Math.random();
-  return (
-    <AnimatePresence mode="wait">
+  return <>{children}</>;
+}
+
+{
+  /* <AnimatePresence mode="wait">
       <motion.div
         key={key}
         initial={{ y: 50, opacity: 0 }} // Starts from 20px below and is invisible
@@ -16,6 +17,5 @@ export default function Template({ children }: { children: React.ReactNode }) {
       >
         {children}
       </motion.div>
-    </AnimatePresence>
-  );
+    </AnimatePresence> */
 }
