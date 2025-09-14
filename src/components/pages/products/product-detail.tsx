@@ -1,10 +1,12 @@
 "use client";
 
 import { Button } from "@/components/common";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useGetProductById } from "@/services/endpoints/product/queries";
 import { useAuthStore } from "@/store/store-auth";
 import { useCartStore } from "@/store/store-cart";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -12,14 +14,17 @@ export default function ProductDetail({ productId }: { productId: string }) {
   const { data: product, isLoading } = useGetProductById(productId, {});
   const { addItem } = useCartStore();
   const { isLoggedIn } = useAuthStore();
+  const isMobile = useIsMobile();
 
   const addAlert = (product: { name: string; price: number; img: string }) => {
     toast.custom(
       (t) => (
-        <div
+        <Link
+          href={"/cart"}
           className={`${
             t.visible ? "animate-custom-enter" : "animate-custom-leave"
           } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex border-2 border-green-600`}
+          onClick={() => toast.dismiss(t.id)}
         >
           <div className="flex-1 w-0 p-4 space-y-1">
             <div>
@@ -56,9 +61,9 @@ export default function ProductDetail({ productId }: { productId: string }) {
               Close
             </button>
           </div> */}
-        </div>
+        </Link>
       ),
-      { position: "bottom-right", duration: 5000 }
+      { position: isMobile ? "top-center" : "bottom-right", duration: 2000 }
     );
   };
 
