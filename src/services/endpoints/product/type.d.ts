@@ -9,6 +9,7 @@ interface typeOfProduct {
   description: string;
   price: number;
   in_stock: boolean;
+  is_feature: boolean;
   category_id: string;
   brand_id: string;
   stock: number;

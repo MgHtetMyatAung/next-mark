@@ -84,37 +84,39 @@ export default function CartList() {
             </tbody>
           </table>
         </div>
-        <div className=" w-full lg:w-5/12 p-5 md:p-10 border border-gray-400 rounded-md space-y-5">
-          <h4>Order Summary</h4>
-          <div className="flex flex-col gap-1">
-            <label htmlFor="" className=" text-gray-500">
-              Discount code / Promo code
-            </label>
-            <input
-              type="text"
-              className=" border rounded-md border-gray-400 p-3"
-              placeholder="Code"
-            />
+        <div className=" w-full lg:w-5/12 ">
+          <div className="p-5 md:p-10 border border-gray-400 rounded-md space-y-5 sticky top-[20px]">
+            <h4>Order Summary</h4>
+            <div className="flex flex-col gap-1">
+              <label htmlFor="" className=" text-gray-500">
+                Discount code / Promo code
+              </label>
+              <input
+                type="text"
+                className=" border rounded-md border-gray-400 p-3"
+                placeholder="Code"
+              />
+            </div>
+            <div className=" space-y-2 text-sm sm:text-base">
+              <p className=" flex justify-between items-center">
+                <span className=" font-semibold">Subtotal</span>
+                <span className=" font-semibold">{subTotal} MMK</span>
+              </p>
+              <p className=" flex justify-between items-center">
+                <span className=" ">Estimated Tax</span>
+                <span className=" font-semibold">{tax} MMK</span>
+              </p>
+              <p className=" flex justify-between items-center">
+                <span className=" ">Estimated shipping & Handling</span>
+                <span className=" font-semibold">{shipping} MMK</span>
+              </p>
+              <p className=" flex justify-between items-center">
+                <span className=" font-semibold">Total</span>
+                <span className=" font-semibold">{total} MMK</span>
+              </p>
+            </div>
+            <Button className=" block w-full">Checkout</Button>
           </div>
-          <div className=" space-y-2 text-sm sm:text-base">
-            <p className=" flex justify-between items-center">
-              <span className=" font-semibold">Subtotal</span>
-              <span className=" font-semibold">{subTotal} MMK</span>
-            </p>
-            <p className=" flex justify-between items-center">
-              <span className=" ">Estimated Tax</span>
-              <span className=" font-semibold">{tax} MMK</span>
-            </p>
-            <p className=" flex justify-between items-center">
-              <span className=" ">Estimated shipping & Handling</span>
-              <span className=" font-semibold">{shipping} MMK</span>
-            </p>
-            <p className=" flex justify-between items-center">
-              <span className=" font-semibold">Total</span>
-              <span className=" font-semibold">{total} MMK</span>
-            </p>
-          </div>
-          <Button className=" block w-full">Checkout</Button>
         </div>
       </div>
     </div>
