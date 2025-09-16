@@ -1,10 +1,8 @@
-"use client";
-
-import { useGetProducts } from "@/services/endpoints/product/queries";
+import { getProductsList } from "@/services/endpoints/product/server_api_call";
 import { ProductCart } from "../products";
 
-export default function FeatureProductsSection() {
-  const { data: products, isLoading } = useGetProducts();
+export default async function FeatureProductsSection() {
+  const products = await getProductsList();
   const featureProducts = products?.filter(
     (product) => product.is_feature === true
   );

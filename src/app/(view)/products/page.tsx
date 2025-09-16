@@ -20,7 +20,7 @@ const queryClient = new QueryClient();
 await queryClient.prefetchQuery({
   queryKey: ["products"],
   queryFn: productApi.getAllProducts,
-  staleTime: 120,
+  staleTime: 1000 * 60 * 30,
 });
 
 const dehydratedState = dehydrate(queryClient);
