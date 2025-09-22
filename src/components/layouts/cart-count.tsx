@@ -18,7 +18,7 @@ export default function Cart() {
     }
   }, [counts]);
   return (
-    <Link href={"/cart"} className=" relative">
+    <Link href={"/cart"} className=" relative" aria-label="Go to cart link">
       <ShoppingBag size={20} />
       <span
         className={clsx(

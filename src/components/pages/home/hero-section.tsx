@@ -13,9 +13,9 @@ export default function HeroSection() {
             <h2 className=" text-7xl lg:text-8xl font-light">
               IPhone 14 <span className=" font-medium">Pro</span>
             </h2>
-            <h5 className=" text-gray-200 text-xl lg:text-2xl">
+            <h6 className=" text-gray-200 text-xl lg:text-2xl">
               Created to change everything for the better. For everyone
-            </h5>
+            </h6>
             <Link href={"/products"}>
               <Button variant="outlined">Shop Now</Button>
             </Link>
@@ -28,6 +28,7 @@ export default function HeroSection() {
             width={400}
             height={600}
             className=" h-full w-auto hidden lg:block"
+            priority
           />
           <Image
             src={"/imgs/hero-mock-phone-sm.png"}
@@ -35,6 +36,7 @@ export default function HeroSection() {
             width={340}
             height={280}
             className=" w-full sm:w-[400px] h-auto mx-auto block lg:hidden"
+            priority
           />
         </div>
       </div>
