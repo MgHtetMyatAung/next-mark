@@ -12,7 +12,7 @@ export default async function CategorySection() {
   return (
     <div className=" ">
       <div className=" px-5 sm:px-7 lg:px-0 max-w-[1200px] mx-auto py-10 space-y-5">
-        <h3 className=" font-medium">Browse By Category</h3>
+        <h2 className=" font-medium">Browse By Category</h2>
         <div className=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
           {categories.map((category) => (
             <Link
