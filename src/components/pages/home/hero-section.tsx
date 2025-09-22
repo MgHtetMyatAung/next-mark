@@ -6,7 +6,7 @@ import React from "react";
 export default function HeroSection() {
   return (
     <div className=" bg-[#211C24]">
-      <div className=" max-w-[1200px] mx-auto h-auto lg:h-[600px] flex flex-col lg:flex-row">
+      <div className=" container mx-auto h-auto lg:h-[600px] flex flex-col lg:flex-row">
         <div className=" text-gray-50 lg:grow h-full lg:flex lg:items-center py-12 lg:py-0">
           <div className=" space-y-6 text-center lg:text-start">
             <p className=" text-gray-200 text-2xl lg:text-3xl">Pro.Beyond.</p>

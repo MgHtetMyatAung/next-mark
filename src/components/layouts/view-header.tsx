@@ -11,7 +11,7 @@ export default function ViewHeader() {
   const mounted = useMounted();
   return (
     <header className=" bg-gray-200">
-      <nav className=" px-5 sm:px-7 lg:px-0 max-w-[1200px] mx-auto flex justify-between items-center h-[80px]">
+      <nav className=" container mx-auto flex justify-between items-center h-[80px]">
         <div>
           <Link href={"/"} className="">
             <h3 className=" font-bold text-lg">Next Js</h3>

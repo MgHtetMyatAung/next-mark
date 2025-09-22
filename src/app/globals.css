@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+@utility container {
+  padding-inline: 1rem;
+  margin-inline: auto;
+  max-width: 1320px;
+  @variant sm {
+    padding-inline: 2rem;
+  }
+  @variant lg {
+    padding-inline: 4rem;
+  }
+  @variant xl {
+    padding-inline: 5rem;
+  }
+  @variant 2xl {
+    padding-inline: 2rem;
+  }
+}
+
 @layer base {
   h2 {
     @apply font-bold text-xl;
